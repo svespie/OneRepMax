@@ -5,6 +5,11 @@ namespace OneRepMax
 {
     public static class Calculate
     {
+        private const double MinimumWeight = 1.0;
+        private const int MinimumReps = 1;
+        private const int MaximumReps = 10;
+        private const int DecimalPlaces = 2;
+
         /// <summary>
         /// This is the entry point to use the calculator. This is the only public method, allowing a simple interface. Any recognized errors will result in a result of -1, allowing graceful checking and handling of input issues.
         /// </summary>
@@ -12,50 +17,54 @@ namespace OneRepMax
         /// <param name="reps">Integer value representing the number of reps obtained in testing. Allowable range is from 1 to 10 reps.</param>
         /// <param name="formula">Enumeration of type Formula that selects the formula that should be used to perform the calculation. The Formula enumeration is publicly available in this library.</param>
         /// <returns>
-        /// Double representing an estimated 1RM based on the indicated weight, reps and formula. A value of -1 will be returned when the input parameters are found to be unsupported. There
-        /// will not be any detail information regarding what the issue was. It is recommended that input parameters be checked for validity prior to calling this method as well as checking the output
-        /// before using it.
+        /// Double representing an estimated 1RM based on the indicated weight, reps and formula. An argument out of range exception will be thrown when invalid weight and rep values are passed in.
+        /// It is recommended that input parameters be checked for validity prior to calling this method.
         /// </returns>
         public static double OneRepMax(double weight, int reps, Formula formula)
         {
-            if (weight < 1.0 || reps < 1 || reps > 10)
+            ValidateWeightAndReps(weight, reps);
+
+            var oneRepMax = SelectFormula(formula)(weight, reps);
+
+            return Math.Round(oneRepMax, digits: DecimalPlaces);
+        }
+
+        private static void ValidateWeightAndReps(double weight, int reps)
+        {
+            if (weight < MinimumWeight)
             {
-                return -1.0;
+                throw new ArgumentOutOfRangeException($"The weight value must be greater than or equal to {MinimumWeight} ({weight}).");
             }
 
-            double oneRepMax;
+            if (reps < MinimumReps || reps > MaximumReps)
+            {
+                throw new ArgumentOutOfRangeException($"The reps value must be greater than or equal to {MinimumReps} and less than or equal to {MaximumReps} ({reps}).");
+            }
+        }
 
+        private static Func<double, int, double> SelectFormula(Formula formula)
+        {
             switch (formula)
             {
                 case Formula.Average:
-                    oneRepMax = Average(weight, reps);
-                    break;
+                    return Average;
                 case Formula.Brzycki:
-                    oneRepMax = Brzycki(weight, reps);
-                    break;
+                    return Brzycki;
                 case Formula.Epley:
-                    oneRepMax = Epley(weight, reps);
-                    break;
+                    return Epley;
                 case Formula.Lander:
-                    oneRepMax = Lander(weight, reps);
-                    break;
+                    return Lander;
                 case Formula.Lombardi:
-                    oneRepMax = Lombardi(weight, reps);
-                    break;
+                    return Lombardi;
                 case Formula.Mayhew:
-                    oneRepMax = Mayhew(weight, reps);
-                    break;
+                    return Mayhew;
                 case Formula.OConner:
-                    oneRepMax = OConner(weight, reps);
-                    break;
+                    return OConner;
                 case Formula.Wathan:
-                    oneRepMax = Wathan(weight, reps);
-                    break;
+                    return Wathan;
                 default:
-                    return -1.0;
+                    throw new NotImplementedException($"The formula {formula} does not appear to have been implemented.");
             }
-
-            return Math.Round(oneRepMax, 2);
         }
 
         /// <summary>
@@ -66,10 +75,7 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Wathan(double weight, int reps)
-        {
-            return 100.0 * weight / (48.8 + 53.8 * Math.Pow(Math.E, -0.075 * reps));
-        }
+        private static double Wathan(double weight, int reps) => 100.0 * weight / (48.8 + 53.8 * Math.Pow(Math.E, -0.075 * reps));
 
         /// <summary>
         /// Estimates a 1RM based on the O'Conner formula.
@@ -89,10 +95,7 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Mayhew(double weight, int reps)
-        {
-            return 100.0 * weight / (52.2 + 41.9 * Math.Pow(Math.E, -0.055 * reps));
-        }
+        private static double Mayhew(double weight, int reps) => 100.0 * weight / (52.2 + 41.9 * Math.Pow(Math.E, -0.055 * reps));
 
         /// <summary>
         /// Estimates a 1RM based on the Lombardi formula.
@@ -102,10 +105,7 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Lombardi(double weight, int reps)
-        {
-            return weight * Math.Pow(reps, 0.1);
-        }
+        private static double Lombardi(double weight, int reps) => weight * Math.Pow(reps, 0.1);
 
         /// <summary>
         /// Estimates a 1RM based on the Lander formula.
@@ -115,10 +115,7 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Lander(double weight, int reps)
-        {
-            return 100.0 * weight / (101.3 - 2.67123 * reps);
-        }
+        private static double Lander(double weight, int reps) => 100.0 * weight / (101.3 - 2.67123 * reps);
 
         /// <summary>
         /// Estimates a 1RM based on the Epley formula.
@@ -128,10 +125,7 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Epley(double weight, int reps)
-        {
-            return weight * reps / 30.0 + weight;
-        }
+        private static double Epley(double weight, int reps) => weight * reps / 30.0 + weight;
 
         /// <summary>
         /// Estimates a 1RM based on the Brzycki formula.
@@ -141,10 +135,7 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Brzycki(double weight, int reps)
-        {
-            return weight * (36.0 / (37.0 - Convert.ToDouble(reps)));
-        }
+        private static double Brzycki(double weight, int reps) => weight * (36.0 / (37.0 - Convert.ToDouble(reps)));
 
         /// <summary>
         /// Estimates a 1RM based on an average of all the forumulas implemented within this library.
@@ -154,14 +145,8 @@ namespace OneRepMax
         /// <returns>
         /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
         /// </returns>
-        private static double Average(double weight, int reps)
-        {
-            return Avg(Brzycki(weight, reps), Epley(weight, reps), Lander(weight, reps), Lombardi(weight, reps), Mayhew(weight, reps), OConner(weight, reps), Wathan(weight, reps));
-        }
+        private static double Average(double weight, int reps) => Avg(Brzycki(weight, reps), Epley(weight, reps), Lander(weight, reps), Lombardi(weight, reps), Mayhew(weight, reps), OConner(weight, reps), Wathan(weight, reps));
 
-        private static double Avg(params double[] maxes)
-        {
-            return maxes.Average();
-        }
+        private static double Avg(params double[] maxes) => maxes.Average();
     }
 }
