@@ -73,7 +73,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Wathan(double weight, int reps) => 100.0 * weight / (48.8 + 53.8 * Math.Pow(Math.E, -0.075 * reps));
 
@@ -83,7 +83,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double OConner(double weight, int reps) => weight * (1.0 + 0.025 * (double)reps);
 
@@ -93,7 +93,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Mayhew(double weight, int reps) => 100.0 * weight / (52.2 + 41.9 * Math.Pow(Math.E, -0.055 * reps));
 
@@ -103,7 +103,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Lombardi(double weight, int reps) => weight * Math.Pow(reps, 0.1);
 
@@ -113,7 +113,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Lander(double weight, int reps) => 100.0 * weight / (101.3 - 2.67123 * reps);
 
@@ -123,7 +123,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Epley(double weight, int reps) => weight * reps / 30.0 + weight;
 
@@ -133,7 +133,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Brzycki(double weight, int reps) => weight * (36.0 / (37.0 - Convert.ToDouble(reps)));
 
@@ -143,7 +143,7 @@ namespace OneRepMax
         /// <param name="weight">The weight used in testing. Units are not necessary. The output will be in the same units as this value. Valid values are &gt;= 1.</param>
         /// <param name="reps">The number of repetitions performed. A range of 1 through 9 is often considered to be most accurate. Valid values are &gt;= 1 and &lt;=10.</param>
         /// <returns>
-        /// Returns an estimated 1RM max rounded to two decimals or -1 if the input is deemed invalid.
+        /// Returns an estimated 1RM max rounded to two decimals if the input is valid. An exception is thrown if the input is invalid.
         /// </returns>
         private static double Average(double weight, int reps) => Avg(Brzycki(weight, reps), Epley(weight, reps), Lander(weight, reps), Lombardi(weight, reps), Mayhew(weight, reps), OConner(weight, reps), Wathan(weight, reps));
 
