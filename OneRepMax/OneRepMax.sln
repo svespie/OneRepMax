@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneRepMax", "OneRepMax\OneR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneRepMax.Demo", "OneRepMax.Demo\OneRepMax.Demo.csproj", "{364F2522-16CE-4203-B731-BA89213B1D18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneRepMax.Tests", "OneRepMax.Tests\OneRepMax.Tests.csproj", "{8E36800F-AF68-4F6E-B2EF-84A9EF3196A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{364F2522-16CE-4203-B731-BA89213B1D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{364F2522-16CE-4203-B731-BA89213B1D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{364F2522-16CE-4203-B731-BA89213B1D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E36800F-AF68-4F6E-B2EF-84A9EF3196A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E36800F-AF68-4F6E-B2EF-84A9EF3196A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E36800F-AF68-4F6E-B2EF-84A9EF3196A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E36800F-AF68-4F6E-B2EF-84A9EF3196A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
