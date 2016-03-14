@@ -26,7 +26,7 @@ namespace OneRepMax
 
             var oneRepMax = SelectFormula(formula)(weight, reps);
 
-            return Math.Round(oneRepMax, digits: DecimalPlaces);
+            return Math.Round(oneRepMax, DecimalPlaces);
         }
 
         private static void ValidateWeightAndReps(double weight, int reps)
