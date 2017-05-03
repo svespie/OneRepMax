@@ -5,6 +5,8 @@
 
     const double weight = 135.0;
     const int reps = 10;
+
+    var calc = new OneRepMaxCalculator();
 }
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@
         <h4>OneRepMax Demo</h4>
         <p>This demo is a web application but use of the OneRepMax library is not limited to web development. This library is based on C#, thus can be used in ASP.NET, console, Windows Forms and WPF applications.</p>
         <p>
-            Example: Lifting @weight lbs. @reps times nets an average 1RM of @Calculate.OneRepMax(weight, reps, Formula.Average) lbs.
+            Example: Lifting @weight lbs. @reps times nets an average 1RM of @calc.Calculate(weight, reps, Formula.Average) lbs.
         </p>
     </div>
 </body>
