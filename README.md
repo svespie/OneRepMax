@@ -61,6 +61,7 @@ Finally, I've re-ordered the TODO list and added a new item. These updates and T
 
 ## TODO
 * Consider applying a directory pattern of src, tests, demo in the solution.
+* Improve test coverage.
 * Change the testing framework to use xunit.
 * Update the NuGet package.
 * Change the demo application to a console application.
