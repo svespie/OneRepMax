@@ -1,13 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategy;
+using OneRepMax.Strategies;
 
-namespace OneRepMax.Tests.Strategy
+namespace OneRepMax.Tests.Strategies
 {
     [TestClass]
-    public class LombardiStrategyShould
+    public class WathanStrategyShould
     {
         private readonly IOneRepMaxCalculator calc = new OneRepMaxCalculator();
-        private readonly ICalculatorStrategy lombardi = new LombardiStrategy();
+        private readonly ICalculatorStrategy wathan = new WathanStrategy();
 
         private const double Weight = 135.0;
         private const int Reps = 10;
@@ -15,8 +15,8 @@ namespace OneRepMax.Tests.Strategy
         [TestMethod]
         public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
         {
-            const double expectedValue = 169.95;
-            var actualValue = calc.Calculate(Weight, Reps, lombardi);
+            const double expectedValue = 181.91;
+            var actualValue = calc.Calculate(Weight, Reps, wathan);
 
             Assert.AreEqual(expectedValue, actualValue);
         }

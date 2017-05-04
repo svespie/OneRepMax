@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OneRepMax.Strategy
+namespace OneRepMax.Strategies
 {
     public class LombardiStrategy : ICalculatorStrategy
     {

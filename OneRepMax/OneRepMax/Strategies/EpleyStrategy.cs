@@ -1,4 +1,4 @@
-﻿namespace OneRepMax.Strategy
+﻿namespace OneRepMax.Strategies
 {
     public class EpleyStrategy : ICalculatorStrategy
     {

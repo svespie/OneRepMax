@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategy;
+using OneRepMax.Strategies;
 
 namespace OneRepMax.Tests
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OneRepMax.Strategy
+﻿namespace OneRepMax.Strategies
 {
     public class OconnerStrategy : ICalculatorStrategy
     {

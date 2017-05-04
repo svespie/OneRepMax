@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategy;
+using OneRepMax.Strategies;
 
-namespace OneRepMax.Tests.Strategy
+namespace OneRepMax.Tests.Strategies
 {
     [TestClass]
     public class OconnerStrategyShould

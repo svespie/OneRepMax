@@ -1,13 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategy;
+using OneRepMax.Strategies;
 
-namespace OneRepMax.Tests.Strategy
+namespace OneRepMax.Tests.Strategies
 {
     [TestClass]
-    public class WathanStrategyShould
+    public class LanderStrategyShould
     {
         private readonly IOneRepMaxCalculator calc = new OneRepMaxCalculator();
-        private readonly ICalculatorStrategy wathan = new WathanStrategy();
+        private readonly ICalculatorStrategy lander = new LanderStrategy();
 
         private const double Weight = 135.0;
         private const int Reps = 10;
@@ -15,8 +15,8 @@ namespace OneRepMax.Tests.Strategy
         [TestMethod]
         public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
         {
-            const double expectedValue = 181.91;
-            var actualValue = calc.Calculate(Weight, Reps, wathan);
+            const double expectedValue = 180.99;
+            var actualValue = calc.Calculate(Weight, Reps, lander);
 
             Assert.AreEqual(expectedValue, actualValue);
         }
