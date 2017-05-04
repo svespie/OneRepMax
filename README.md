@@ -1,11 +1,11 @@
 # OneRepMax
 A one repetition maximum (often abbreviated 1RM) identifies a weight that a weight lifter can lift only once for a given movement, such as the bench press. This value is often calculated based on strength testing where the lifter lifts a sub-maximal weight for as many repetitions as possible.
 
-It turns out that there are a number of different ways to calculate a 1RM, as depicted on Wikipedia: https://en.wikipedia.org/wiki/One-repetition_maximum. *OneRepMax* simply compiles these formulas into a C# library. In addition to the seven formulas listed in the Wikipedia entry, *OneRepMax* also provides functionality to average all of the formula.
+It turns out that there are a number of different ways to calculate a 1RM, as depicted on Wikipedia: https://en.wikipedia.org/wiki/One-repetition_maximum. *OneRepMax* provides a calculator to calculate a 1RM based on these formulas. The formulas are implemented as strategies that make it easier to test and you may even provide your own.
 
 There is a JavaScript version of this library that can be found here: http://svespie.github.io/onerepmax-js/.
 
-There is also an angular 1.x directive based on the JavaScript version of this library that can be found here: http://svespie.github.io/angular-onerepmax/.
+There is also an angular 1.x module based on the JavaScript version of this library that can be found here: http://svespie.github.io/angular-onerepmax/.
 
 ## Installation
 There is a NuGet package that contains just the library code and that can be imported into your application via Visual Studio in the usual way. 
@@ -46,10 +46,22 @@ Alternatively, you are free to download the source to use as you see fit. If you
 
 NuGet package has not been updated. This is a breaking change and the rest of the planned changes will also be breaking changes; I'll update the NuGet package after the re-design.
 
+*May 4, 2017* - May the 4th be with you! :)
+
+Applied a strategy pattern to represent the various formulas. This simplified the calculator, bringing it to having a single responsibility. It also closed the calculator to modification and opened it to extension. The calculator as a dependency is now much easier to mock for testing and client code may even supply their own formula (strategy), if they so choose.
+
+I dropped the enumeration representing the formulas as well as the average method. I loved the convenience of these, but I'm taking a purist approach to design with this project.
+
+The tests and demo have been updated, however the tests confirming formula functionality are basically based on the previous tests. These tests take a dependency on two objects instead of simply determining if the formula is applied correctly. I'll look at fixing this when I change the testing framework.
+
+Also, I believe any further changes to the library will not be radical, so the NuGet package should be updated soon as well.
+
+Finally, I've re-ordered the TODO list and added a new item. These updates and TODO notes should probably find themselves on the WIKI to keep the readme tidy and to the point.
+
 
 ## TODO
-* Apply the Open/Closed and Single Responsibility principles by implementing a strategy pattern.
 * Change the testing framework to use xunit.
-* Change the demo application to a console application.
 * Update the NuGet package.
+* Change the demo application to a console application.
 * Determine if it is feasible or even valuable to make this C# version of the library available via npm.
+* Move the updates and TODO notes to the repo's wiki.
