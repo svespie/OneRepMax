@@ -1,4 +1,5 @@
 ﻿@using OneRepMax
+@using OneRepMax.Strategy
 
 @{
     Layout = null;
@@ -7,6 +8,7 @@
     const int reps = 10;
 
     var calc = new OneRepMaxCalculator();
+    var formula = new EpleyStrategy();
 }
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@
         <h4>OneRepMax Demo</h4>
         <p>This demo is a web application but use of the OneRepMax library is not limited to web development. This library is based on C#, thus can be used in ASP.NET, console, Windows Forms and WPF applications.</p>
         <p>
-            Example: Lifting @weight lbs. @reps times nets an average 1RM of @calc.Calculate(weight, reps, Formula.Average) lbs.
+            Example: Lifting @weight lbs. @reps times nets an estimated 1RM of @calc.Calculate(weight, reps, formula) lbs.
         </p>
     </div>
 </body>

@@ -1,19 +1,21 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OneRepMax.Strategy;
 
 namespace OneRepMax.Tests
 {
     [TestClass]
-    public class CalculateTests
+    public class InputValidationTests
     {
         private readonly IOneRepMaxCalculator calc = new OneRepMaxCalculator();
+        private readonly ICalculatorStrategy epley = new EpleyStrategy();
 
         [TestMethod]
         public void ShouldNotThrowAnExceptionWithWeightGreaterThan1()
         {
             try
             {
-                calc.Calculate(135, 5, Formula.Average);
+                calc.Calculate(135, 5, epley);
             }
             catch (Exception ex)
             {
@@ -26,7 +28,7 @@ namespace OneRepMax.Tests
         {
             try
             {
-                calc.Calculate(135, 1, Formula.Average);
+                calc.Calculate(135, 1, epley);
             }
             catch (Exception ex)
             {
@@ -39,7 +41,7 @@ namespace OneRepMax.Tests
         {
             try
             {
-                calc.Calculate(135, 10, Formula.Average);
+                calc.Calculate(135, 10, epley);
             }
             catch (Exception ex)
             {
@@ -51,21 +53,21 @@ namespace OneRepMax.Tests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ShouldThrowAnExceptionWhenWeightIsLessThan1()
         {
-            calc.Calculate(0.999, 5, Formula.Average);
+            calc.Calculate(0.999, 5, epley);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ShouldThrowAnExceptionWhenRepsIsLessThan1()
         {
-            calc.Calculate(135, 0, Formula.Average);
+            calc.Calculate(135, 0, epley);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ShouldThrowAnExceptionWhenRepsIsGreaterThan10()
         {
-            calc.Calculate(135, 11, Formula.Average);
+            calc.Calculate(135, 11, epley);
         }
     }
 }
