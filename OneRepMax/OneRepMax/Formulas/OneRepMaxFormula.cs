@@ -1,4 +1,4 @@
-﻿namespace OneRepMax
+﻿namespace OneRepMax.Formulas
 {
     public enum OneRepMaxFormula
     {

@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategies;
+using OneRepMax.Formulas;
 
-namespace OneRepMax.Tests.Strategies
+namespace OneRepMax.Tests.Formulas
 {
     [TestClass]
-    public class LanderStrategyShould
+    public class LanderFormulaShould
     {
-        private readonly ICalculatorStrategy lander = new LanderStrategy();
+        private readonly IFormula lander = new LanderFormula();
 
         private const double Weight = 135.0;
         private const int Reps = 10;

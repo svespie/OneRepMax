@@ -1,6 +1,6 @@
-﻿namespace OneRepMax
+﻿namespace OneRepMax.Formulas
 {
-    public interface ICalculatorStrategy
+    public interface IFormula
     {
         double Calculate(double weight, int reps);
     }

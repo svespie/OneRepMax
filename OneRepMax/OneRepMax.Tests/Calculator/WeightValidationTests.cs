@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OneRepMax.Calculator;
+using OneRepMax.Formulas;
 
 namespace OneRepMax.Tests.Calculator
 {

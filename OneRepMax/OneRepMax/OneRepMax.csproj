@@ -40,19 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormulaFactory.cs" />
-    <Compile Include="OneRepMaxFormula.cs" />
-    <Compile Include="Strategies\BrzyckiStrategy.cs" />
-    <Compile Include="ICalculatorStrategy.cs" />
-    <Compile Include="OneRepMaxCalculator.cs" />
-    <Compile Include="IOneRepMaxCalculator.cs" />
+    <Compile Include="Formulas\FormulaFactory.cs" />
+    <Compile Include="Formulas\OneRepMaxFormula.cs" />
+    <Compile Include="Formulas\BrzyckiFormula.cs" />
+    <Compile Include="Formulas\IFormula.cs" />
+    <Compile Include="Calculator\OneRepMaxCalculator.cs" />
+    <Compile Include="Calculator\IOneRepMaxCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strategies\EpleyStrategy.cs" />
-    <Compile Include="Strategies\LanderStrategy.cs" />
-    <Compile Include="Strategies\LombardiStrategy.cs" />
-    <Compile Include="Strategies\MayhewStrategy.cs" />
-    <Compile Include="Strategies\OconnerStrategy.cs" />
-    <Compile Include="Strategies\WathanStrategy.cs" />
+    <Compile Include="Formulas\EpleyFormula.cs" />
+    <Compile Include="Formulas\LanderFormula.cs" />
+    <Compile Include="Formulas\LombardiFormula.cs" />
+    <Compile Include="Formulas\MayhewFormula.cs" />
+    <Compile Include="Formulas\OconnerFormula.cs" />
+    <Compile Include="Formulas\WathanFormula.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

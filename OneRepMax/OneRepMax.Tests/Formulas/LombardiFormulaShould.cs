@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategies;
+using OneRepMax.Formulas;
 
-namespace OneRepMax.Tests.Strategies
+namespace OneRepMax.Tests.Formulas
 {
     [TestClass]
-    public class LombardiStrategyShould
+    public class LombardiFormulaShould
     {
-        private readonly ICalculatorStrategy lombardi = new LombardiStrategy();
+        private readonly IFormula lombardi = new LombardiFormula();
 
         private const double Weight = 135.0;
         private const int Reps = 10;

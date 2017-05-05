@@ -55,13 +55,13 @@
     <Compile Include="Calculator\RepValidationTests.cs" />
     <Compile Include="Calculator\WeightValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strategies\BrzyckiStrategyShould.cs" />
-    <Compile Include="Strategies\EpleyStrategyShould.cs" />
-    <Compile Include="Strategies\LanderStrategyShould.cs" />
-    <Compile Include="Strategies\LombardiStrategyShould.cs" />
-    <Compile Include="Strategies\MayhewStrategyShould.cs" />
-    <Compile Include="Strategies\OconnerStrategyShould.cs" />
-    <Compile Include="Strategies\WathanStrategyShould.cs" />
+    <Compile Include="Formulas\BrzyckiFormulaShould.cs" />
+    <Compile Include="Formulas\EpleyFormulaShould.cs" />
+    <Compile Include="Formulas\LanderFormulaShould.cs" />
+    <Compile Include="Formulas\LombardiFormulaShould.cs" />
+    <Compile Include="Formulas\MayhewFormulaShould.cs" />
+    <Compile Include="Formulas\OconnerFormulaShould.cs" />
+    <Compile Include="Formulas\WathanFormulaShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OneRepMax\OneRepMax.csproj">

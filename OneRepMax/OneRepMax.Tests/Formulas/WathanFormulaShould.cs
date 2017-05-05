@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategies;
+using OneRepMax.Formulas;
 
-namespace OneRepMax.Tests.Strategies
+namespace OneRepMax.Tests.Formulas
 {
     [TestClass]
-    public class WathanStrategyShould
+    public class WathanFormulaShould
     {
-        private readonly ICalculatorStrategy wathan = new WathanStrategy();
+        private readonly IFormula wathan = new WathanFormula();
 
         private const double Weight = 135.0;
         private const int Reps = 10;

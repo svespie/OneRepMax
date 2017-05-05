@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategies;
+using OneRepMax.Formulas;
 
-namespace OneRepMax.Tests.Strategies
+namespace OneRepMax.Tests.Formulas
 {
     [TestClass]
-    public class OconnerStrategyShould
+    public class OconnerFormulaShould
     {
-        private readonly ICalculatorStrategy oconner = new OconnerStrategy();
+        private readonly IFormula oconner = new OconnerFormula();
 
         private const double Weight = 135.0;
         private const int Reps = 10;

@@ -1,4 +1,4 @@
-﻿namespace OneRepMax
+﻿namespace OneRepMax.Calculator
 {
     public interface IOneRepMaxCalculator
     {

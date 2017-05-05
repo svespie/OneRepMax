@@ -1,6 +1,7 @@
-﻿using System;
+using System;
+using OneRepMax.Formulas;
 
-namespace OneRepMax
+namespace OneRepMax.Calculator
 {
     public class OneRepMaxCalculator : IOneRepMaxCalculator
     {
@@ -8,16 +9,16 @@ namespace OneRepMax
         private const int MinimumReps = 1;
         private const int MaximumReps = 10;
 
-        private readonly ICalculatorStrategy formula;
+        private readonly IFormula formula;
 
-        public OneRepMaxCalculator(ICalculatorStrategy formula)
+        public OneRepMaxCalculator(IFormula formula)
         {
             this.formula = formula;
         }
 
         public OneRepMaxCalculator(OneRepMaxFormula formulaType)
         {
-            formula = FormulaFactory.GetFormulaStrategy(formulaType);
+            formula = FormulaFactory.GetFormula(formulaType);
         }
 
         public double Calculate(double weight, int reps)
