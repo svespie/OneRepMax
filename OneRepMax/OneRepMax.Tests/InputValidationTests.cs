@@ -1,21 +1,19 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OneRepMax.Strategies;
 
 namespace OneRepMax.Tests
 {
     [TestClass]
     public class InputValidationTests
     {
-        private readonly IOneRepMaxCalculator calc = new OneRepMaxCalculator();
-        private readonly ICalculatorStrategy epley = new EpleyStrategy();
+        private readonly OneRepMaxCalculator calc = new OneRepMaxCalculator(OneRepMaxFormula.Epley);
 
         [TestMethod]
         public void ShouldNotThrowAnExceptionWithWeightGreaterThan1()
         {
             try
             {
-                calc.Calculate(135, 5, epley);
+                calc.ValidateWeight(135);
             }
             catch (Exception ex)
             {
@@ -28,7 +26,7 @@ namespace OneRepMax.Tests
         {
             try
             {
-                calc.Calculate(135, 1, epley);
+                calc.ValidateReps(1);
             }
             catch (Exception ex)
             {
@@ -41,7 +39,7 @@ namespace OneRepMax.Tests
         {
             try
             {
-                calc.Calculate(135, 10, epley);
+                calc.ValidateReps(10);
             }
             catch (Exception ex)
             {
@@ -53,21 +51,21 @@ namespace OneRepMax.Tests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ShouldThrowAnExceptionWhenWeightIsLessThan1()
         {
-            calc.Calculate(0.999, 5, epley);
+            calc.ValidateWeight(0.999);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ShouldThrowAnExceptionWhenRepsIsLessThan1()
         {
-            calc.Calculate(135, 0, epley);
+            calc.ValidateReps(0);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ShouldThrowAnExceptionWhenRepsIsGreaterThan10()
         {
-            calc.Calculate(135, 11, epley);
+            calc.ValidateReps(11);
         }
     }
 }
