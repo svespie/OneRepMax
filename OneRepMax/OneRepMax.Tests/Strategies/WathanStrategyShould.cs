@@ -14,7 +14,7 @@ namespace OneRepMax.Tests.Strategies
         private const int DecimalPlaces = 2;
 
         [TestMethod]
-        public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
+        public void ShouldBeAbleToCalculateA1RmUsingWathanFormula()
         {
             const double expectedValue = 181.91;
             var actualValue = wathan.Calculate(Weight, Reps);

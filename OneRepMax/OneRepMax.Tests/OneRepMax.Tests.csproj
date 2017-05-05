@@ -52,7 +52,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="InputValidationTests.cs" />
+    <Compile Include="Calculator\RepValidationTests.cs" />
+    <Compile Include="Calculator\WeightValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategies\BrzyckiStrategyShould.cs" />
     <Compile Include="Strategies\EpleyStrategyShould.cs" />

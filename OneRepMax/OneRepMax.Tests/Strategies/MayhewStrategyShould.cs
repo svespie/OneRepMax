@@ -14,7 +14,7 @@ namespace OneRepMax.Tests.Strategies
         private const int DecimalPlaces = 2;
 
         [TestMethod]
-        public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
+        public void ShouldBeAbleToCalculateA1RmUsingMayhewFormula()
         {
             const double expectedValue = 176.76;
             var actualValue = mayhew.Calculate(Weight, Reps);

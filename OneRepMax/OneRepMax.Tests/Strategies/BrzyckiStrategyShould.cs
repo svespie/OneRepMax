@@ -14,7 +14,7 @@ namespace OneRepMax.Tests.Strategies
         private const int DecimalPlaces = 2;
 
         [TestMethod]
-        public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
+        public void ShouldBeAbleToCalculateA1RmUsingBrzyckiFormula()
         {
             const double expectedValue = 180.00;
             var actualValue = brzycki.Calculate(Weight, Reps);

@@ -14,7 +14,7 @@ namespace OneRepMax.Tests.Strategies
         private const int DecimalPlaces = 2;
 
         [TestMethod]
-        public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
+        public void ShouldBeAbleToCalculateA1RmUsingLombardiFormula()
         {
             const double expectedValue = 169.95;
             var actualValue = lombardi.Calculate(Weight, Reps);

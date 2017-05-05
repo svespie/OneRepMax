@@ -1,25 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace OneRepMax.Tests
+namespace OneRepMax.Tests.Calculator
 {
     [TestClass]
-    public class InputValidationTests
+    public class RepValidationTests
     {
         private readonly OneRepMaxCalculator calc = new OneRepMaxCalculator(OneRepMaxFormula.Epley);
-
-        [TestMethod]
-        public void ShouldNotThrowAnExceptionWithWeightGreaterThan1()
-        {
-            try
-            {
-                calc.ValidateWeight(135);
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail("Expected no exception, but got: " + ex.Message);
-            }
-        }
 
         [TestMethod]
         public void ShouldNotThrowAnExceptionWithRepsEqual1()
@@ -45,13 +32,6 @@ namespace OneRepMax.Tests
             {
                 Assert.Fail("Expected no exception, but got: " + ex.Message);
             }
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ShouldThrowAnExceptionWhenWeightIsLessThan1()
-        {
-            calc.ValidateWeight(0.999);
         }
 
         [TestMethod]

@@ -14,7 +14,7 @@ namespace OneRepMax.Tests.Strategies
         private const int DecimalPlaces = 2;
 
         [TestMethod]
-        public void ShouldBeAbleToCalculateA1RmToTwoDecimalPlaces()
+        public void ShouldBeAbleToCalculateA1RmUsingOConnerFormula()
         {
             const double expectedValue = 168.75;
             var actualValue = oconner.Calculate(Weight, Reps);
