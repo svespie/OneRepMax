@@ -67,3 +67,4 @@ Finally, I've re-ordered the TODO list and added a new item. These updates and T
 * Change the demo application to a console application.
 * Determine if it is feasible or even valuable to make this C# version of the library available via npm.
 * Move the updates and TODO notes to the repo's wiki.
+* Add a Usage section to the readme.
