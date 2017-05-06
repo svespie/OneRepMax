@@ -71,7 +71,7 @@ Finally, broke the two validation operations (weight and reps) into two seperate
 
 
 ## TODO
-* Improve test coverage (new factory method and calculator constructors).
+* Improve test coverage (new factory method and calculator constructors) => getting more important.
 * Change the testing framework to use xunit.
 * Update the NuGet package.
 * Determine if it is feasible or even valuable to make this C# version of the library available via npm.
