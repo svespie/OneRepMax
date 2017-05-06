@@ -69,6 +69,10 @@ I also removed the strategy terminology and replaced it with formula. In this pa
 
 Finally, broke the two validation operations (weight and reps) into two seperate methods, since methods should also have a single responsiblity. These methods were made public on the concrete implementation of the calculator to aid in testing. These methods are not required by the abstraction, and thus will not affect any client tests using the calculator.
 
+__*May 6, 2017*__ - Extracted the validation logic from the calculator and replaced it with an injectable abstraction. There is also a factory class to resolve the default validator in the event the client does not provide their own. Now the calculator is completely open for extension and closed to modification. Client code can also provide their own validation, if they so desire. Another benefit is that the validation tests no longer depend on a formula, since the tests no longer require a calculator to be newed up and tested.
+
+This additional configuration provided a more complex constructor situation. Whatever dependency the user does not wish to or is unable to provide is now provided in a default capacity by the calculator. The documentation of this project will need to be updated to guide users on how to use this library.
+
 
 ## TODO
 * Improve test coverage (new factory method and calculator constructors) => getting more important.
