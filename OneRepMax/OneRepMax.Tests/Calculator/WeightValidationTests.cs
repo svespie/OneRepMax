@@ -1,21 +1,20 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OneRepMax.Calculator;
-using OneRepMax.Formulas;
 
 namespace OneRepMax.Tests.Calculator
 {
     [TestClass]
     public class WeightValidationTests
     {
-        private readonly OneRepMaxCalculator calc = new OneRepMaxCalculator(OneRepMaxFormula.Epley);
+        private readonly OneRepMaxValidator validator = new OneRepMaxValidator();
 
         [TestMethod]
-        public void ShouldNotThrowAnExceptionWithWeightGreaterThan1()
+        public void ValidatorShouldNotThrowAnExceptionWithWeightGreaterThan1()
         {
             try
             {
-                calc.ValidateWeight(135);
+                validator.ValidateWeight(135);
             }
             catch (Exception ex)
             {
@@ -25,9 +24,9 @@ namespace OneRepMax.Tests.Calculator
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ShouldThrowAnExceptionWhenWeightIsLessThan1()
+        public void ValidatorShouldThrowAnExceptionWhenWeightIsLessThan1()
         {
-            calc.ValidateWeight(0.999);
+            validator.ValidateWeight(0.999);
         }
     }
 }

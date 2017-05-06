@@ -4,6 +4,11 @@ namespace OneRepMax.Formulas
 {
     internal static class FormulaFactory
     {
+        internal static IFormula GetDefaultFormula()
+        {
+            return GetFormula(OneRepMaxFormula.Epley);
+        }
+
         internal static IFormula GetFormula(OneRepMaxFormula formula)
         {
             switch (formula)

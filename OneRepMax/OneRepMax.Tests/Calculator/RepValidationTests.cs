@@ -1,21 +1,20 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OneRepMax.Calculator;
-using OneRepMax.Formulas;
 
 namespace OneRepMax.Tests.Calculator
 {
     [TestClass]
     public class RepValidationTests
     {
-        private readonly OneRepMaxCalculator calc = new OneRepMaxCalculator(OneRepMaxFormula.Epley);
+        private readonly OneRepMaxValidator validator = new OneRepMaxValidator();
 
         [TestMethod]
-        public void ShouldNotThrowAnExceptionWithRepsEqual1()
+        public void ValidatorShouldNotThrowAnExceptionWithRepsEqual1()
         {
             try
             {
-                calc.ValidateReps(1);
+                validator.ValidateReps(1);
             }
             catch (Exception ex)
             {
@@ -24,11 +23,11 @@ namespace OneRepMax.Tests.Calculator
         }
 
         [TestMethod]
-        public void ShouldNotThrowAnExceptionWithRepsEqual10()
+        public void ValidatorShouldNotThrowAnExceptionWithRepsEqual10()
         {
             try
             {
-                calc.ValidateReps(10);
+                validator.ValidateReps(10);
             }
             catch (Exception ex)
             {
@@ -38,16 +37,16 @@ namespace OneRepMax.Tests.Calculator
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ShouldThrowAnExceptionWhenRepsIsLessThan1()
+        public void ValidatorShouldThrowAnExceptionWhenRepsIsLessThan1()
         {
-            calc.ValidateReps(0);
+            validator.ValidateReps(0);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ShouldThrowAnExceptionWhenRepsIsGreaterThan10()
+        public void ValidatorShouldThrowAnExceptionWhenRepsIsGreaterThan10()
         {
-            calc.ValidateReps(11);
+            validator.ValidateReps(11);
         }
     }
 }

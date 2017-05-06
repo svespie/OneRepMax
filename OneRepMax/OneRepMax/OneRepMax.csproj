@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\IOneRepMaxValidator.cs" />
+    <Compile Include="Calculator\OneRepMaxValidator.cs" />
+    <Compile Include="Calculator\ValidatorFactory.cs" />
     <Compile Include="Formulas\FormulaFactory.cs" />
     <Compile Include="Formulas\OneRepMaxFormula.cs" />
     <Compile Include="Formulas\BrzyckiFormula.cs" />

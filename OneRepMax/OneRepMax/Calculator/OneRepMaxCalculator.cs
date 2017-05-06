@@ -1,53 +1,44 @@
-using System;
 using OneRepMax.Formulas;
 
 namespace OneRepMax.Calculator
 {
     public class OneRepMaxCalculator : IOneRepMaxCalculator
     {
-        private const double MinimumWeight = 1.0;
-        private const int MinimumReps = 1;
-        private const int MaximumReps = 10;
-
         private readonly IFormula formula;
+        private readonly IOneRepMaxValidator validator;
 
-        public OneRepMaxCalculator(IFormula formula)
+        public OneRepMaxCalculator() : this(ValidatorFactory.GetDefaultValidator(), FormulaFactory.GetDefaultFormula())
         {
-            this.formula = formula;
         }
 
-        public OneRepMaxCalculator(OneRepMaxFormula formulaType)
+        public OneRepMaxCalculator(IOneRepMaxValidator validator) : this(validator, FormulaFactory.GetDefaultFormula())
         {
-            formula = FormulaFactory.GetFormula(formulaType);
+        }
+
+        public OneRepMaxCalculator(IFormula formula): this(ValidatorFactory.GetDefaultValidator(), formula)
+        {
+        }
+
+        public OneRepMaxCalculator(OneRepMaxFormula formula) : this(ValidatorFactory.GetDefaultValidator(), FormulaFactory.GetFormula(formula))
+        {
+        }
+
+        public OneRepMaxCalculator(IOneRepMaxValidator validator, OneRepMaxFormula formulaType) : this(validator, FormulaFactory.GetFormula(formulaType))
+        {
+        }
+
+        public OneRepMaxCalculator(IOneRepMaxValidator validator, IFormula formula)
+        {
+            this.formula = formula;
+            this.validator = validator;
         }
 
         public double Calculate(double weight, int reps)
         {
-            ValidateWeight(weight);
-            ValidateReps(reps);
+            validator.ValidateWeight(weight);
+            validator.ValidateReps(reps);
 
             return formula.Calculate(weight, reps);
-        }
-
-        public void ValidateWeight(double weight)
-        {
-            if (weight < MinimumWeight)
-            {
-                throw new ArgumentOutOfRangeException($"The {nameof(weight)} value must be greater than or equal to {MinimumWeight} ({weight}).");
-            }
-        }
-
-        public void ValidateReps(int reps)
-        {
-            if (reps < MinimumReps)
-            {
-                throw new ArgumentOutOfRangeException($"The {nameof(reps)} value must be greater than or equal to {MinimumReps} ({reps}).");
-            }
-
-            if (reps > MaximumReps)
-            {
-                throw new ArgumentOutOfRangeException($"The {nameof(reps)} value must be less than or equal to {MaximumReps} ({reps}).");
-            }
         }
     }
 }
