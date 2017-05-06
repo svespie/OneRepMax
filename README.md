@@ -45,11 +45,11 @@ Alternatively, you are free to download the source to use as you see fit. If you
 Coming Soon!
 
 ## Updates
-*May 3, 2017* - Removed the static modifier to the Calculate class and provided a layer of abstraction. The class was also renamed. More work on this is needed.
+__*May 3, 2017*__ - Removed the static modifier to the Calculate class and provided a layer of abstraction. The class was also renamed. More work on this is needed.
 
 NuGet package has not been updated. This is a breaking change and the rest of the planned changes will also be breaking changes; I'll update the NuGet package after the re-design.
 
-*May 4, 2017* - May the 4th be with you! :)
+__*May 4, 2017*__ - May the 4th be with you! :)
 
 Applied a strategy pattern to represent the various formulas. This simplified the calculator, bringing it to having a single responsibility. It also closed the calculator to modification and opened it to extension. The calculator as a dependency is now much easier to mock for testing and client code may even supply their own formula (strategy), if they so choose.
 
@@ -61,7 +61,7 @@ Also, I believe any further changes to the library will not be radical, so the N
 
 Finally, I've re-ordered the TODO list and added a new item. These updates and TODO notes should probably find themselves on the WIKI to keep the readme tidy and to the point.
 
-*May 5, 2017* - Created an enumeration and a couple of constructors, allowing the client to provide an enum selection to choose an internally ipmlemented formula. The second constructor allows the client to provide their own.
+__*May 5, 2017*__ - Created an enumeration and a couple of constructors, allowing the client to provide an enum selection to choose an internally ipmlemented formula. The second constructor allows the client to provide their own.
 
 The internal formulas are set to internal so they cannot be created directly by the client (but the test harness has access to them in when compiled in debug mode). The constructor taking an enum value calls upon an internal factory to provide the appropriate formula (srategy).
 
