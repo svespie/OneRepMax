@@ -41,6 +41,9 @@ Alternatively, you are free to download the source to use as you see fit. If you
 **Note: If you want the latest source code available, this is also your only option at the moment.**
 
 
+## Usage
+Coming Soon!
+
 ## Updates
 *May 3, 2017* - Removed the static modifier to the Calculate class and provided a layer of abstraction. The class was also renamed. More work on this is needed.
 
@@ -58,13 +61,19 @@ Also, I believe any further changes to the library will not be radical, so the N
 
 Finally, I've re-ordered the TODO list and added a new item. These updates and TODO notes should probably find themselves on the WIKI to keep the readme tidy and to the point.
 
+*May 5, 2017* - Created an enumeration and a couple of constructors, allowing the client to provide an enum selection to choose an internally ipmlemented formula. The second constructor allows the client to provide their own.
+
+The internal formulas are set to internal so they cannot be created directly by the client (but the test harness has access to them in when compiled in debug mode). The constructor taking an enum value calls upon an internal factory to provide the appropriate formula (srategy).
+
+I also removed the strategy terminology and replaced it with formula. In this particular case, it reads better and thus will be easier to maintain in the long term. Anyone familiar with the strategy design pattern should be able to quickly pick it out, since this is a simple example (simple library overall, even).
+
+Finally, broke the two validation operations (weight and reps) into two seperate methods, since methods should also have a single responsiblity. These methods were made public on the concrete implementation of the calculator to aid in testing. These methods are not required by the abstraction, and thus will not affect any client tests using the calculator.
+
 
 ## TODO
-* Consider applying a directory pattern of src, tests, demo in the solution.
 * Improve test coverage (new factory method and calculator constructors).
 * Change the testing framework to use xunit.
 * Update the NuGet package.
-* Change the demo application to a console application.
 * Determine if it is feasible or even valuable to make this C# version of the library available via npm.
 * Move the updates and TODO notes to the repo's wiki.
 * Add a Usage section to the readme.
